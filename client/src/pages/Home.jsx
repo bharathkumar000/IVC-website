@@ -24,7 +24,7 @@ const Home = () => {
                         transition={{ duration: 0.8 }}
                         className="text-4xl font-extrabold tracking-tight text-ivc-text sm:text-6xl"
                     >
-                        Innovate. Create. <br />
+                        IDEATE - VISUALIZE - CREATE <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-ivc-primary to-ivc-accent">
                             Transform Ideas into Impact.
                         </span>

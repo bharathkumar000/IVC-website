@@ -1,11 +1,12 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const path = require('path');
 
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3030;
 
 app.use(cors());
 app.use(express.json());
@@ -23,11 +24,7 @@ const projects = [
 
 const members = []; // In-memory store for join requests
 
-// Routes
-app.get('/', (req, res) => {
-    res.send('IVC API is running');
-});
-
+// API Routes
 app.get('/api/events', (req, res) => {
     res.json(events);
 });
@@ -45,6 +42,15 @@ app.post('/api/join', (req, res) => {
     members.push(newMember);
     console.log('New Member Joined:', newMember);
     res.status(201).json({ message: 'Successfully joined IVC!', member: newMember });
+});
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+app.get(/.*/, (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
 app.listen(PORT, () => {

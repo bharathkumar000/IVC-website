@@ -42,7 +42,7 @@ npm install
 ```bash
 cd server
 npm run dev
-# runs on http://localhost:5000
+# runs on http://localhost:3030
 ```
 
 **Terminal 2 (Frontend):**
@@ -58,3 +58,5 @@ npm run dev
 - Hero Section with Animations
 - Projects, Events, Join Pages
 - Backend API for `/join`, `/projects`, `/events`
+
+

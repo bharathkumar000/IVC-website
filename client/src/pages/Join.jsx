@@ -18,7 +18,7 @@ const Join = () => {
         e.preventDefault();
         setStatus('submitting');
         try {
-            const response = await fetch('http://localhost:5000/api/join', {
+            const response = await fetch('/api/join', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
