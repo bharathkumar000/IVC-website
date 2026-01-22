@@ -22,13 +22,20 @@ const Home = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="text-4xl font-extrabold tracking-tight text-ivc-text sm:text-6xl"
+                        className="text-3xl font-extrabold tracking-tight text-ivc-text sm:text-6xl whitespace-nowrap"
                     >
-                        IDEATE - VISUALIZE - CREATE <br />
+                        IDEATE - VISUALIZE - CREATE
+                    </motion.h1>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.1 }}
+                        className="text-xl sm:text-3xl font-bold mt-8"
+                    >
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-ivc-primary to-ivc-accent">
                             Transform Ideas into Impact.
                         </span>
-                    </motion.h1>
+                    </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -58,7 +65,7 @@ const Home = () => {
                     </motion.div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 export default Home

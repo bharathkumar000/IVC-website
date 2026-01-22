@@ -43,6 +43,9 @@ This file tracks all changes made to the codebase, including configuration updat
   - Action: Updated hero section main heading text.
   - From: `'Innovate. Create.'`
   - To: `'IDEATE - VISUALIZE - CREATE'`
+  - Width: Enforced separate lines.
+  - Spacing: Added significant vertical spacing (`mt-8`) between main heading and subheading.
+  - Subheading: Separated "Transform Ideas into Impact" into an `<h2>` element and set it to approximately half the size of the main heading (`text-xl sm:text-3xl`).
 - **Deployment**:
   - Action: Rebuilt the frontend with `npm run build` to apply changes.
   - Action: Restarted server.
