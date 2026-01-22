@@ -96,3 +96,15 @@ This file tracks all changes made to the codebase, including configuration updat
   - Action: Increased font size from `text-base` to `text-xl` (approx 1.25x).
 - **Deployment**:
   - Action: Automatically rebuilt the frontend.
+
+## [2026-01-22]
+
+### 11:15 AM - Development Configuration Update
+- **Config**:
+  - File: `package.json`
+  - Action: updated `dev` script to run backend server and frontend build (watch mode) concurrently.
+  - Purpose: To serve the application on a single port (3030) while maintaining auto-rebuild capabilities for development.
+- **Workflow**:
+  - Command: `npm run dev`
+  - Result: Server starts on port 3030. Frontend rebuilds on file changes.
+- **Status**: Application running on `http://localhost:3030`.
