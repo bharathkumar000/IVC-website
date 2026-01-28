@@ -1,42 +1,45 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Moon, Sun } from 'lucide-react';
+import { Home, Info, Layers, Rocket, Calendar, Users, UserPlus, Mail, Moon, Sun } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 import logo from '../assets/logo.png';
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('home');
+    const [hoveredTab, setHoveredTab] = useState(null);
     const { isDark, toggleTheme } = useTheme();
 
     const links = [
-        { name: 'Home', id: 'home' },
-        { name: 'About', id: 'about' },
-        { name: 'Domains', id: 'domains' },
-        { name: 'Projects', id: 'projects' },
-        { name: 'Events', id: 'events' },
-        { name: 'Team', id: 'team' },
-        { name: 'Join IVC', id: 'join' },
+        { name: 'Home', id: 'home', icon: Home },
+        { name: 'About', id: 'about', icon: Info },
+        { name: 'Domains', id: 'domains', icon: Layers },
+        { name: 'Projects', id: 'projects', icon: Rocket },
+        { name: 'Events', id: 'events', icon: Calendar },
+        { name: 'Team', id: 'team', icon: Users },
+        { name: 'Join IVC', id: 'join', icon: UserPlus },
+        { name: 'Contact', id: 'contact', icon: Mail },
     ];
 
     const scrollToSection = (id) => {
         const element = document.getElementById(id);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
-            setIsOpen(false);
             setActiveSection(id);
         }
     };
 
     useEffect(() => {
         const handleScroll = () => {
-            const sections = links.map(link => document.getElementById(link.id));
-            const scrollPosition = window.scrollY + 100; // Offset for navbar
+            // Find the active section based on scroll position
+            // Reverse the array to find the *last* section that fits (closest to bottom if multiple overlap)
+            // or just find the one occupying the screen center.
+            const scrollPosition = window.scrollY + 300;
 
-            for (const section of sections) {
+            for (const link of links) {
+                const section = document.getElementById(link.id);
                 if (section && section.offsetTop <= scrollPosition && (section.offsetTop + section.offsetHeight) > scrollPosition) {
-                    setActiveSection(section.id);
+                    setActiveSection(link.id);
                 }
             }
         };
@@ -46,55 +49,86 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className="fixed w-full z-50 top-0 start-0 bg-ivc-bg/90 dark:bg-ivc-dark-bg/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
-            <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between px-4 py-3">
-                <button onClick={() => scrollToSection('home')} className="flex items-center space-x-3 rtl:space-x-reverse bg-transparent border-none cursor-pointer">
-                    <img src={logo} className="h-10 w-auto" alt="IVC Logo" />
-                    <span className="self-center text-2xl font-bold whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-ivc-primary to-ivc-accent">IVC</span>
+        <nav className="fixed w-full z-50 top-6 flex justify-center pointer-events-none px-4">
+            <motion.div
+                initial={{ y: -100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                className="flex items-center gap-2 p-3 bg-white/10 dark:bg-black/20 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-full shadow-2xl pointer-events-auto"
+            >
+                {/* Logo - Click to go top */}
+                <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="mr-2 pl-2">
+                    <img src={logo} className="h-8 w-auto hover:scale-110 transition-transform" alt="IVC Logo" />
                 </button>
 
-                <div className="flex items-center gap-2 md:order-2">
-                    {/* Dark Mode Toggle Button */}
-                    <button
-                        onClick={toggleTheme}
-                        className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300"
-                        aria-label="Toggle dark mode"
-                    >
-                        {isDark ? (
-                            <Sun className="w-5 h-5 text-yellow-400" />
-                        ) : (
-                            <Moon className="w-5 h-5 text-gray-600" />
-                        )}
-                    </button>
+                <div className="h-8 w-px bg-white/20 dark:bg-white/10 mx-1"></div>
 
-                    {/* Mobile menu button */}
-                    <button
-                        onClick={() => setIsOpen(!isOpen)}
-                        className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 dark:text-gray-400 rounded-lg md:hidden hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-700"
-                    >
-                        <span className="sr-only">Open main menu</span>
-                        {isOpen ? <X /> : <Menu />}
-                    </button>
-                </div>
+                {/* Navigation Icons */}
+                <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar max-w-[85vw] sm:max-w-none px-4 py-4">
+                    {links.map((link) => {
+                        const Icon = link.icon;
+                        const isActive = activeSection === link.id;
 
-                <div className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${isOpen ? 'block' : 'hidden'}`} id="navbar-sticky">
-                    <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 dark:border-gray-800 rounded-lg bg-gray-50 dark:bg-ivc-dark-card md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent">
-                        {links.map((link) => (
-                            <li key={link.name}>
+                        return (
+                            <div
+                                key={link.id}
+                                className="relative group perspective-1000 z-10"
+                                onMouseEnter={() => setHoveredTab(link.id)}
+                                onMouseLeave={() => setHoveredTab(null)}
+                            >
+                                {/* Active Background Pill with Smooth Transition */}
+                                {isActive && (
+                                    <motion.div
+                                        layoutId="active-pill"
+                                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-7 h-7 bg-ivc-primary rounded-full shadow-[0_0_15px_rgba(20,184,166,0.5)] z-0"
+                                        initial={false}
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 400,
+                                            damping: 30
+                                        }}
+                                    />
+                                )}
+
                                 <button
                                     onClick={() => scrollToSection(link.id)}
-                                    className={`block py-2 px-3 rounded md:p-0 transition-all ${activeSection === link.id
-                                        ? 'text-ivc-primary font-bold border-b-2 border-ivc-primary'
-                                        : 'text-gray-600 dark:text-gray-300 hover:text-ivc-primary dark:hover:text-ivc-primary'
+                                    className={`w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 relative z-10 bg-transparent ${isActive
+                                        ? 'text-white scale-125 -translate-y-2'
+                                        : 'text-gray-400 hover:text-white hover:bg-transparent hover:scale-150 hover:-translate-y-4 hover:z-50'
                                         }`}
+                                    aria-label={link.name}
                                 >
-                                    {link.name}
+                                    <Icon size={20} strokeWidth={isActive ? 2.5 : 2} />
                                 </button>
-                            </li>
-                        ))}
-                    </ul>
+
+                                {/* Tooltip */}
+                                <AnimatePresence>
+                                    {hoveredTab === link.id && (
+                                        <motion.span
+                                            initial={{ opacity: 0, y: 10, scale: 0.8 }}
+                                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                                            exit={{ opacity: 0, y: 5, scale: 0.9 }}
+                                            className="absolute -bottom-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-black/80 dark:bg-white/90 text-white dark:text-black text-xs font-bold rounded-md whitespace-nowrap z-50 pointer-events-none"
+                                        >
+                                            {link.name}
+                                        </motion.span>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        );
+                    })}
                 </div>
-            </div>
+
+                <div className="h-8 w-px bg-white/20 dark:bg-white/10 mx-1"></div>
+
+                {/* Theme Toggle */}
+                <button
+                    onClick={toggleTheme}
+                    className="w-10 h-10 flex items-center justify-center rounded-full hover:text-white hover:bg-transparent transition-all duration-300 group relative text-gray-400"
+                    aria-label="Toggle Theme"
+                >
+                    {isDark ? <Sun size={20} /> : <Moon size={20} />}
+                </button>
+            </motion.div>
         </nav>
     );
 };

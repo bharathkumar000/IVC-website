@@ -58,7 +58,7 @@ const Join = () => {
                 <h2 className="text-3xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-ivc-secondary to-ivc-accent underline underline-offset-8 decoration-ivc-primary/30">
                     Join the Innovation Club
                 </h2>
-                <form onSubmit={handleSubmit} className="space-y-6 bg-ivc-card dark:bg-ivc-dark-card p-8 rounded-xl border border-gray-200 dark:border-gray-800 backdrop-blur-sm shadow-xl transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl hover:border-ivc-primary dark:hover:border-ivc-primary hover:shadow-ivc-primary/20">
+                <form onSubmit={handleSubmit} className="space-y-6 glass-panel glass-panel-hover p-8 rounded-xl transition-all duration-300">
                     {['Name', 'Email', 'Department', 'Year'].map((field) => (
                         <div key={field}>
                             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">{field}</label>
@@ -68,7 +68,7 @@ const Join = () => {
                                 value={formData[field.toLowerCase()]}
                                 onChange={handleChange}
                                 required
-                                className="mt-1 block w-full rounded-md border-0 bg-white dark:bg-gray-800 py-2 text-gray-900 dark:text-gray-300 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 focus:ring-2 focus:ring-inset focus:ring-ivc-primary sm:text-sm sm:leading-6 px-3 transition-all placeholder:text-gray-400"
+                                className="mt-1 block w-full rounded-md border border-white/10 bg-white/5 dark:bg-white/5 py-2 text-ivc-dark-text shadow-sm backdrop-blur-md focus:ring-2 focus:ring-inset focus:ring-ivc-primary sm:text-sm sm:leading-6 px-3 transition-all placeholder:text-gray-500"
                             />
                         </div>
                     ))}
@@ -93,7 +93,7 @@ const Join = () => {
                 className="mt-16 text-center"
                 id="contact"
             >
-                <div className="bg-ivc-card dark:bg-ivc-dark-card/50 backdrop-blur-md p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl">
+                <div className="glass-panel glass-panel-hover p-8 rounded-2xl">
                     <h3 className="text-2xl font-bold text-ivc-text dark:text-ivc-dark-text mb-3">
                         Connect With Us
                     </h3>
