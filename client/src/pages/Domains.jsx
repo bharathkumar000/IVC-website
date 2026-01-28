@@ -1,6 +1,6 @@
 const Domains = () => (
-    <div className="pt-32 px-4 max-w-7xl mx-auto text-center text-ivc-text">
-        <h1 className="text-4xl font-bold mb-12">Our Domains</h1>
+    <div className="pt-20 pb-24 px-4 max-w-7xl mx-auto text-center text-ivc-text">
+        <h1 className="text-4xl font-bold mb-12 underline underline-offset-8 decoration-ivc-primary/30">Our Domains</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {['Web Development', 'AI & ML', 'IoT & Hardware', 'Entrepreneurship', 'UI/UX Design'].map(d => (
                 <div key={d} className="p-8 bg-ivc-card border border-gray-200 dark:border-gray-800 rounded-xl transition-all duration-300 shadow-sm hover:scale-[1.02] hover:shadow-2xl hover:border-ivc-primary dark:hover:border-ivc-primary hover:shadow-ivc-primary/20 group">

@@ -53,7 +53,7 @@ const Home = () => {
     }, [currentText, isDeleting, loopNum, phrases, typingSpeed]);
 
     return (
-        <div className="relative isolate pt-24 pb-12 lg:pt-32 min-h-screen flex items-center">
+        <div className="relative isolate pt-32 pb-32 lg:pt-40 min-h-screen flex items-center">
 
             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 relative z-10 w-full">
                 <div className="max-w-5xl mx-auto text-center">
@@ -69,7 +69,7 @@ const Home = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="text-[4vw] md:text-5xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-ivc-primary to-ivc-accent mb-6 whitespace-nowrap"
+                        className="text-[4vw] md:text-5xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-ivc-primary to-ivc-accent mb-2 whitespace-nowrap"
                     >
                         INNOVATORS & VISIONARIES CLUB
                     </motion.h2>
@@ -108,7 +108,7 @@ const Home = () => {
                     >
                         <button
                             onClick={() => document.getElementById('join')?.scrollIntoView({ behavior: 'smooth' })}
-                            className="rounded-full bg-ivc-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-ivc-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ivc-primary transition-all hover:scale-105"
+                            className="rounded-full bg-ivc-primary px-3.5 py-2.5 text-sm font-semibold text-gray-200 shadow-sm hover:bg-ivc-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ivc-primary transition-all hover:scale-105"
                         >
                             Join IVC
                         </button>

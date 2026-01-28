@@ -19,8 +19,8 @@ const Events = () => {
     }, []);
 
     return (
-        <div className="pt-24 pb-12 px-4 max-w-7xl mx-auto min-h-screen">
-            <h2 className="text-4xl font-bold mb-12 text-center text-ivc-text">Upcoming Events</h2>
+        <div className="pt-20 pb-24 px-4 max-w-7xl mx-auto">
+            <h2 className="text-4xl font-bold mb-12 text-center text-ivc-text underline underline-offset-8 decoration-ivc-primary/30">Upcoming Events</h2>
             {loading ? (
                 <div className="flex justify-center items-center h-64">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-ivc-primary"></div>
@@ -37,7 +37,7 @@ const Events = () => {
                         >
                             <div className="md:w-1/3 h-48 md:h-auto relative">
                                 <img src={event.image} alt={event.title} className="w-full h-full object-cover" />
-                                <div className="absolute top-0 left-0 bg-ivc-primary text-gray-100 px-4 py-1 rounded-br-lg font-bold">
+                                <div className="absolute top-0 left-0 bg-ivc-primary text-gray-200 px-4 py-1 rounded-br-lg font-bold">
                                     {event.date}
                                 </div>
                             </div>

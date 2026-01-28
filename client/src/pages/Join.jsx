@@ -36,13 +36,13 @@ const Join = () => {
     };
 
     return (
-        <div className="pt-24 pb-12 px-4 max-w-xl mx-auto min-h-screen flex flex-col justify-center">
+        <div className="pt-20 pb-24 px-4 max-w-xl mx-auto flex flex-col justify-center">
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
             >
-                <h2 className="text-3xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-ivc-secondary to-ivc-accent">
+                <h2 className="text-3xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-ivc-secondary to-ivc-accent underline underline-offset-8 decoration-ivc-primary/30">
                     Join the Innovation Club
                 </h2>
                 <form onSubmit={handleSubmit} className="space-y-6 bg-ivc-card dark:bg-ivc-dark-card p-8 rounded-xl border border-gray-200 dark:border-gray-800 backdrop-blur-sm shadow-xl transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl hover:border-ivc-primary dark:hover:border-ivc-primary hover:shadow-ivc-primary/20">
@@ -63,7 +63,7 @@ const Join = () => {
                     <button
                         type="submit"
                         disabled={status === 'submitting'}
-                        className="w-full justify-center rounded-md bg-ivc-primary px-3 py-2 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-ivc-purple focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ivc-primary disabled:opacity-50 transition-all hover:scale-[1.02]"
+                        className="w-full justify-center rounded-md bg-ivc-primary px-3 py-2 text-sm font-semibold leading-6 text-gray-200 shadow-sm hover:bg-ivc-purple focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ivc-primary disabled:opacity-50 transition-all hover:scale-[1.02]"
                     >
                         {status === 'submitting' ? 'Submitting...' : 'Join Now'}
                     </button>

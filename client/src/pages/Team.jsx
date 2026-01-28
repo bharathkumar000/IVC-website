@@ -1,6 +1,6 @@
 const Team = () => (
-    <div className="pt-32 px-4 max-w-7xl mx-auto text-center text-ivc-text">
-        <h1 className="text-4xl font-bold mb-12">Meet the Team</h1>
+    <div className="pt-20 pb-24 px-4 max-w-7xl mx-auto text-center text-ivc-text">
+        <h1 className="text-4xl font-bold mb-12 underline underline-offset-8 decoration-ivc-primary/30">Meet the Team</h1>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[1, 2, 3, 4].map(d => (
                 <div key={d} className="p-6 bg-ivc-card border border-gray-200 rounded-xl hover:border-ivc-primary transition-colors hover:shadow-md">
