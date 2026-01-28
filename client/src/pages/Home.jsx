@@ -56,7 +56,11 @@ const Home = () => {
         <div className="relative isolate pt-24 pb-20 lg:pt-32 min-h-screen flex items-start">
 
             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 relative z-10 w-full">
-                <div className="max-w-5xl mx-auto text-center">
+                <div className="max-w-5xl mx-auto text-center glass-panel p-10 md:p-16 rounded-[2.5rem] relative overflow-hidden">
+                    {/* Decorative glow background for the hero box */}
+                    <div className="absolute -top-24 -left-24 w-64 h-64 bg-ivc-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
+                    <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-ivc-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
+
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -96,7 +100,7 @@ const Home = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300"
+                        className="mt-6 text-lg leading-8 text-gray-300 max-w-2xl mx-auto"
                     >
                         IVC is the ultimate hub for student innovation, uniting tech enthusiasts, designers, and dreamers. We empower creative minds to collaborate, experiment, and build future-ready solutions together.
                     </motion.p>
@@ -114,7 +118,7 @@ const Home = () => {
                         </button>
                         <button
                             onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                            className="text-sm font-semibold leading-6 text-ivc-text dark:text-ivc-dark-text flex items-center gap-1 hover:gap-2 transition-all hover:text-ivc-primary"
+                            className="text-sm font-semibold leading-6 text-ivc-dark-text flex items-center gap-1 hover:gap-2 transition-all hover:text-ivc-primary"
                         >
                             View Projects <ArrowRight size={16} />
                         </button>
