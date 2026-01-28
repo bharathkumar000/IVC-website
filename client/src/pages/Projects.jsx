@@ -34,8 +34,8 @@ const Projects = () => {
     };
 
     return (
-        <div className="pt-24 pb-12 px-4 max-w-7xl mx-auto min-h-screen">
-            <h2 className="text-4xl font-bold mb-12 text-center text-ivc-text">Our Projects</h2>
+        <div className="pt-20 pb-24 px-4 max-w-7xl mx-auto">
+            <h2 className="text-4xl font-bold mb-12 text-center text-ivc-text underline underline-offset-8 decoration-ivc-primary/30">Our Projects</h2>
 
             {loading ? (
                 <div className="flex justify-center items-center h-64">
