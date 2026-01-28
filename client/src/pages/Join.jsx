@@ -45,17 +45,17 @@ const Join = () => {
                 <h2 className="text-3xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-ivc-secondary to-ivc-accent">
                     Join the Innovation Club
                 </h2>
-                <form onSubmit={handleSubmit} className="space-y-6 bg-ivc-card p-8 rounded-xl border border-gray-200 backdrop-blur-sm shadow-xl">
+                <form onSubmit={handleSubmit} className="space-y-6 bg-ivc-card dark:bg-ivc-dark-card p-8 rounded-xl border border-gray-200 dark:border-gray-800 backdrop-blur-sm shadow-xl transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl hover:border-ivc-primary dark:hover:border-ivc-primary hover:shadow-ivc-primary/20">
                     {['Name', 'Email', 'Department', 'Year'].map((field) => (
                         <div key={field}>
-                            <label className="block text-sm font-medium text-gray-700">{field}</label>
+                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">{field}</label>
                             <input
                                 type={field === 'Email' ? 'email' : 'text'}
                                 name={field.toLowerCase()}
                                 value={formData[field.toLowerCase()]}
                                 onChange={handleChange}
                                 required
-                                className="mt-1 block w-full rounded-md border-0 bg-white py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-ivc-primary sm:text-sm sm:leading-6 px-3 transition-all"
+                                className="mt-1 block w-full rounded-md border-0 bg-white dark:bg-gray-800 py-2 text-gray-900 dark:text-gray-300 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 focus:ring-2 focus:ring-inset focus:ring-ivc-primary sm:text-sm sm:leading-6 px-3 transition-all placeholder:text-gray-400"
                             />
                         </div>
                     ))}
