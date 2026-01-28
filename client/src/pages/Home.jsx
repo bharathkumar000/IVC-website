@@ -56,7 +56,7 @@ const Home = () => {
         <div className="relative isolate pt-24 pb-12 lg:pt-32 min-h-screen flex items-center">
 
             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 relative z-10 w-full">
-                <div className="max-w-3xl mx-auto text-center">
+                <div className="max-w-5xl mx-auto text-center">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -65,11 +65,19 @@ const Home = () => {
                     >
                         <img src={logo} alt="IVC Logo" className="w-32 h-32 md:w-48 md:h-48 drop-shadow-2xl" />
                     </motion.div>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="text-[4vw] md:text-5xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-ivc-primary to-ivc-accent mb-6 whitespace-nowrap"
+                    >
+                        INNOVATORS & VISIONARIES CLUB
+                    </motion.h2>
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="text-3xl font-extrabold tracking-tight text-ivc-text sm:text-6xl whitespace-nowrap"
+                        className="text-xl font-extrabold tracking-tight text-ivc-text dark:text-ivc-dark-text sm:text-3xl whitespace-nowrap"
                     >
                         IDEATE - VISUALIZE - CREATE
                     </motion.h1>
@@ -88,7 +96,7 @@ const Home = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="mt-6 text-lg leading-8 text-gray-600"
+                        className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300"
                     >
                         IVC is the ultimate hub for student innovation, uniting tech enthusiasts, designers, and dreamers. We empower creative minds to collaborate, experiment, and build future-ready solutions together.
                     </motion.p>
@@ -106,7 +114,7 @@ const Home = () => {
                         </button>
                         <button
                             onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                            className="text-sm font-semibold leading-6 text-ivc-text flex items-center gap-1 hover:gap-2 transition-all hover:text-ivc-primary"
+                            className="text-sm font-semibold leading-6 text-ivc-text dark:text-ivc-dark-text flex items-center gap-1 hover:gap-2 transition-all hover:text-ivc-primary"
                         >
                             View Projects <ArrowRight size={16} />
                         </button>

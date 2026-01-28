@@ -52,11 +52,11 @@ const Projects = () => {
                         <motion.div
                             key={project.id}
                             variants={item}
-                            className="bg-ivc-card border border-gray-200 rounded-xl overflow-hidden hover:border-ivc-primary/50 transition-colors group hover:shadow-lg hover:shadow-ivc-primary/10"
+                            className="bg-ivc-card border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden transition-all duration-300 group hover:scale-[1.02] hover:shadow-2xl hover:border-ivc-primary dark:hover:border-ivc-primary hover:shadow-ivc-primary/20"
                         >
                             <div className="h-48 bg-gray-200 overflow-hidden relative">
                                 <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                                <div className="absolute top-2 right-2 bg-black/60 px-2 py-1 rounded text-xs font-mono border border-white/20 text-white">
+                                <div className="absolute top-2 right-2 bg-black/60 px-2 py-1 rounded text-xs font-mono border border-white/20 text-gray-200">
                                     {project.domain}
                                 </div>
                             </div>
