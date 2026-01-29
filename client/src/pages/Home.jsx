@@ -67,7 +67,7 @@ const Home = () => {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8 sm:mb-12"
+                        className="flex flex-col md:flex-row items-center justify-center gap-4 mb-2 sm:mb-3"
                     >
                         <img src={vvceLogo} alt="VVCE Logo" className="w-16 h-16 md:w-20 md:h-20" />
                         <h3 className="text-xl md:text-3xl font-bold text-white uppercase tracking-wider text-center md:text-left drop-shadow-lg font-display">
