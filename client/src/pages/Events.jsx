@@ -20,7 +20,9 @@ const Events = () => {
 
     return (
         <div className="pt-20 pb-24 px-4 max-w-7xl mx-auto">
-            <h2 className="text-4xl font-bold mb-12 text-center text-ivc-text underline underline-offset-8 decoration-ivc-primary/30">Upcoming Events</h2>
+            <h1 className="text-5xl font-display font-bold mb-12 text-center text-glow text-white">
+                Upcoming <span className="text-ivc-primary">Events</span>
+            </h1>
             {loading ? (
                 <div className="flex justify-center items-center h-64">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-ivc-primary"></div>
@@ -31,9 +33,8 @@ const Events = () => {
                         <motion.div
                             key={event.id}
                             initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            whileHover={{ scale: 1.02 }}
-                            transition={{ delay: index * 0.1, type: "spring", stiffness: 300 }}
+                            animate={{ opacity: 1, y: 0, transition: { delay: index * 0.1 } }}
+                            whileHover={{ scale: 1.02, transition: { duration: 0.1, ease: "easeOut" } }}
                             className="glass-panel glass-panel-hover rounded-2xl overflow-hidden group flex flex-col"
                         >
                             <div className="h-64 relative overflow-hidden">
