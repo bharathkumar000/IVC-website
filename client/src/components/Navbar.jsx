@@ -94,8 +94,8 @@ const Navbar = () => {
                                 <button
                                     onClick={() => scrollToSection(link.id)}
                                     className={`w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 ease-out relative z-10 bg-transparent ${isActive
-                                        ? 'text-white scale-150 drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] z-50'
-                                        : 'text-gray-400 hover:text-white hover:!bg-transparent hover:scale-150 hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.5)] hover:z-50'
+                                        ? 'text-black dark:text-white scale-150 drop-shadow-[0_0_10px_rgba(0,0,0,0.2)] dark:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] z-50'
+                                        : 'text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:!bg-transparent hover:scale-150 hover:drop-shadow-[0_0_15px_rgba(0,0,0,0.2)] dark:hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.5)] hover:z-50'
                                         }`}
                                     aria-label={link.name}
                                 >
