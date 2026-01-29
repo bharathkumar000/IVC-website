@@ -4,13 +4,13 @@ const Team = () => {
     // Layout based on user's specific grouping: 
     // Coord/Mentor(2), Pres/VP/Sec(4), Op(2), Proj(2), Treas(1), Design(3), Comm(4), Social(2)
     // Layout based on user's specific grouping: 
-    // Coord/Mentor(2), Pres/VP/Sec(4), Op/Proj(4), Treas(1), Design(3), Comm(4), Social(2)
+    // Coord/(2), Pres/VP/Sec(4), Op/Proj(4), Treas(1), Design(3), Comm(4), Social(2)
     const layoutConfiguration = [2, 4, 4, 1, 3, 4, 2];
 
     // Explicitly defining roles in order
     const teamRoles = [
-        { name: "Member Name", role: "Coordinator" },
-        { name: "Member Name", role: "Mentor" },
+        { name: "Hamsaveeni ", role: "Coordinator" },
+        { name: "Praveen", role: "Mentor" },
         { name: "Jay Ameya Vijay", role: "President" },
         { name: "Riddhi Singh", role: "Vice President" },
         { name: "Yashwanth", role: "Secretary" },
@@ -19,16 +19,16 @@ const Team = () => {
         { name: "Siddharth", role: "Operational Lead" },
         { name: "Member Name", role: "Project Lead" },
         { name: "Member Name", role: "Project Lead" },
-        { name: "Member Name", role: "Treasurer" },
-        { name: "Member Name", role: "Design & Documentation Lead" },
-        { name: "Member Name", role: "Design & Documentation Lead" },
-        { name: "Member Name", role: "Design & Documentation Lead" },
-        { name: "Member Name", role: "Communication & Outreach Lead" },
-        { name: "Member Name", role: "Communication & Outreach Lead" },
-        { name: "Member Name", role: "Communication & Outreach Lead" },
-        { name: "Member Name", role: "Communication & Outreach Lead" },
-        { name: "Member Name", role: "Social Media & Marketing Lead" },
-        { name: "Member Name", role: "Social Media & Marketing Lead" },
+        { name: "Deekshith", role: "Treasurer" },
+        { name: "Yuktha", role: "Design & Documentation Lead" },
+        { name: "Dhanush V Kumar", role: "Design & Documentation Lead" },
+        { name: "Prasad", role: "Design & Documentation Lead" },
+        { name: "Monish ", role: "Communication & Outreach Lead" },
+        { name: "Jeevan", role: "Communication & Outreach Lead" },
+        { name: "Afia", role: "Communication & Outreach Lead" },
+        { name: "Anthra", role: "Communication & Outreach Lead" },
+        { name: "Mahesh Prasad", role: "Social Media & Marketing Lead" },
+        { name: "Dhanush M C", role: "Social Media & Marketing Lead" },
     ];
 
     // Map to objects with IDs
@@ -55,7 +55,7 @@ const Team = () => {
             if (i === 15) image = "/images/team/comm_outreach_2.jpg";
             if (i === 16) image = "/images/team/comm_outreach_3.png";
         } else if (member.role === "Social Media & Marketing Lead") {
-            if (i === 18) image = "/images/team/social_media_1.jpg";
+            if (i === 18) image = "/images/team/mahesh_prasad.png";
             if (i === 19) image = "/images/team/social_media_2.jpg";
         }
 
@@ -76,7 +76,9 @@ const Team = () => {
 
     return (
         <div className="pt-24 pb-24 px-4 max-w-7xl mx-auto text-center text-ivc-text">
-            <h1 className="text-4xl font-bold mb-12 underline underline-offset-8 decoration-ivc-primary/30">Meet the Team</h1>
+            <h1 className="text-5xl font-display font-bold mb-12 text-glow text-white">
+                Meet the <span className="text-ivc-primary">Team</span>
+            </h1>
 
             <div className="space-y-8">
                 {rows.map((row, rowIndex) => (
@@ -94,10 +96,9 @@ const Team = () => {
                                 <div key={member.id} className="flex items-center">
                                     <motion.div
                                         initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
+                                        whileInView={{ opacity: 1, y: 0, transition: { delay: index * 0.1 } }}
                                         viewport={{ once: true }}
-                                        whileHover={{ scale: 1.05 }}
-                                        transition={{ delay: index * 0.1, type: "spring", stiffness: 300 }}
+                                        whileHover={{ scale: 1.05, transition: { duration: 0.1, ease: "easeOut" } }}
                                         className={`p-4 glass-panel glass-panel-hover rounded-2xl flex flex-col items-center ${cardWidth}`}
                                     >
                                         <div className={`${imgSize} bg-gray-300 rounded-full mb-3 relative overflow-hidden group-hover:scale-105 transition-transform`}>
