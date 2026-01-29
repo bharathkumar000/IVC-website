@@ -9,6 +9,7 @@ export default defineConfig({
       usePolling: true,
     },
     host: true, // Expose to network
+    port: 9090,
     hmr: {
       overlay: true // Show errors on screen which helps debug
     },
