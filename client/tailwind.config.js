@@ -17,12 +17,14 @@ export default {
           accent: "#0891b2", // Cyan-600
           // Dark theme colors
           "dark-bg": "#000000",
-          "dark-card": "#0f0f16", // Slightly lighter than black for cards
           "dark-text": "#F5F5F5",
+          "purple": "#8b5cf6", // Violet-500
+          "cyan": "#06b6d4", // Cyan-500
         }
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
+        display: ['Outfit', 'sans-serif'], // Added premium display font
       }
     },
   },

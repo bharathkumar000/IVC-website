@@ -11,6 +11,13 @@ export default defineConfig({
     host: true, // Expose to network
     hmr: {
       overlay: true // Show errors on screen which helps debug
+    },
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+        secure: false,
+      }
     }
   }
 })
