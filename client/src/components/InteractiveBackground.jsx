@@ -9,7 +9,7 @@ const InteractiveBackground = () => {
         let animationFrameId;
 
         // Configuration
-        const STAR_COUNT = 400; // Increased density
+        const STAR_COUNT = 450; // Increased density
         const INTERACTION_RADIUS = 90; // User preferred larger radius
         const MOUSE_FORCE = 2; // Stronger force for clear repulsion
         const RETURN_SPEED = 0.02; // Smooth return

@@ -128,7 +128,7 @@ const Join = () => {
                             <a
                                 key={index}
                                 href={href}
-                                className={`p-3 rounded-full border border-gray-500/30 transition-all duration-300 group hover:scale-125 hover:-translate-y-1 ${colorClass}`}
+                                className={`p-3 rounded-full glass-panel hover:bg-white/20 transition-all duration-300 group hover:scale-125 hover:-translate-y-1 ${colorClass}`}
                             >
                                 <Icon className="w-6 h-6 text-gray-400 transition-colors group-hover:text-current" />
                             </a>

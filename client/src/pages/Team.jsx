@@ -11,12 +11,12 @@ const Team = () => {
     const teamRoles = [
         { name: "Member Name", role: "Coordinator" },
         { name: "Member Name", role: "Mentor" },
-        { name: "Member Name", role: "President" },
-        { name: "Member Name", role: "Vice President" },
-        { name: "Member Name", role: "Secretary" },
-        { name: "Member Name", role: "Secretary" },
-        { name: "Member Name", role: "Operational Lead" },
-        { name: "Member Name", role: "Operational Lead" },
+        { name: "Jay Ameya Vijay", role: "President" },
+        { name: "Riddhi Singh", role: "Vice President" },
+        { name: "Yashwanth", role: "Secretary" },
+        { name: "Parinitha K", role: "Secretary" },
+        { name: "Bharath Kumar A", role: "Operational Lead" },
+        { name: "Siddharth", role: "Operational Lead" },
         { name: "Member Name", role: "Project Lead" },
         { name: "Member Name", role: "Project Lead" },
         { name: "Member Name", role: "Treasurer" },
@@ -96,7 +96,8 @@ const Team = () => {
                                         initial={{ opacity: 0, y: 20 }}
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
-                                        transition={{ delay: index * 0.1 }}
+                                        whileHover={{ scale: 1.05 }}
+                                        transition={{ delay: index * 0.1, type: "spring", stiffness: 300 }}
                                         className={`p-4 glass-panel glass-panel-hover rounded-2xl flex flex-col items-center ${cardWidth}`}
                                     >
                                         <div className={`${imgSize} bg-gray-300 rounded-full mb-3 relative overflow-hidden group-hover:scale-105 transition-transform`}>

@@ -56,8 +56,8 @@ const Home = () => {
         <div className="relative isolate pt-24 pb-20 lg:pt-32 min-h-screen flex items-start">
 
             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 relative z-10 w-full">
-                <div className="max-w-5xl mx-auto text-center glass-panel p-10 md:p-16 rounded-[2.5rem] relative overflow-hidden">
-                    {/* Decorative glow background for the hero box */}
+                <div className="max-w-5xl mx-auto text-center relative">
+                    {/* Decorative glow background for the hero content */}
                     <div className="absolute -top-24 -left-24 w-64 h-64 bg-ivc-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
                     <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-ivc-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
 
@@ -73,7 +73,7 @@ const Home = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="text-[4vw] md:text-5xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-ivc-primary to-ivc-accent mb-2 whitespace-nowrap"
+                        className="text-[4vw] md:text-5xl font-display font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-ivc-primary to-ivc-accent mb-2 whitespace-nowrap drop-shadow-lg"
                     >
                         INNOVATORS & VISIONARIES CLUB
                     </motion.h2>
@@ -81,7 +81,7 @@ const Home = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="text-xl font-extrabold tracking-tight text-ivc-text dark:text-ivc-dark-text sm:text-3xl whitespace-nowrap"
+                        className="text-xl font-bold tracking-widest text-ivc-text dark:text-gray-300 sm:text-3xl whitespace-nowrap text-glow"
                     >
                         IDEATE - VISUALIZE - CREATE
                     </motion.h1>

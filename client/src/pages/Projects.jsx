@@ -52,18 +52,21 @@ const Projects = () => {
                         <motion.div
                             key={project.id}
                             variants={item}
+                            whileHover={{ scale: 1.02 }}
+                            transition={{ type: "spring", stiffness: 300 }}
                             className="glass-panel glass-panel-hover rounded-2xl overflow-hidden group"
                         >
-                            <div className="h-56 overflow-hidden relative">
-                                <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                                <div className="absolute top-3 right-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded-md text-xs font-mono border border-gray-700 text-gray-300">
+                            <div className="h-64 overflow-hidden relative">
+                                <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+                                <div className="absolute top-3 right-3 glass-panel px-3 py-1 rounded-full text-xs font-bold tracking-wider text-white uppercase backdrop-blur-md border-white/20">
                                     {project.domain}
                                 </div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
                             </div>
-                            <div className="p-6">
-                                <h3 className="text-2xl font-bold mb-3 text-ivc-dark-text group-hover:text-ivc-primary transition-colors">{project.title}</h3>
-                                <p className="text-gray-400 text-sm mb-6 leading-relaxed line-clamp-2">{project.description}</p>
-                                <button className="text-ivc-primary text-sm font-bold tracking-wide hover:text-ivc-dark-text transition-colors flex items-center gap-2 group-hover:translate-x-1 duration-300">
+                            <div className="p-8 relative">
+                                <h3 className="text-2xl font-display font-bold mb-3 text-white group-hover:text-ivc-primary transition-colors text-glow-purple group-hover:text-glow">{project.title}</h3>
+                                <p className="text-gray-400 text-sm mb-6 leading-relaxed line-clamp-2 font-light">{project.description}</p>
+                                <button className="text-ivc-primary text-sm font-bold tracking-widest hover:text-white transition-colors flex items-center gap-2 group-hover:gap-4 duration-300 uppercase">
                                     Read More <span className="text-lg">→</span>
                                 </button>
                             </div>
