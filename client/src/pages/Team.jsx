@@ -96,7 +96,8 @@ const Team = () => {
                                         initial={{ opacity: 0, y: 20 }}
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
-                                        transition={{ delay: index * 0.1 }}
+                                        whileHover={{ scale: 1.05 }}
+                                        transition={{ delay: index * 0.1, type: "spring", stiffness: 300 }}
                                         className={`p-4 glass-panel glass-panel-hover rounded-2xl flex flex-col items-center ${cardWidth}`}
                                     >
                                         <div className={`${imgSize} bg-gray-300 rounded-full mb-3 relative overflow-hidden group-hover:scale-105 transition-transform`}>

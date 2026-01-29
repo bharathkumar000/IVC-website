@@ -73,7 +73,7 @@ const Home = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="text-[4vw] md:text-5xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-ivc-primary to-ivc-accent mb-2 whitespace-nowrap"
+                        className="text-[4vw] md:text-5xl font-display font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-ivc-primary to-ivc-accent mb-2 whitespace-nowrap drop-shadow-lg"
                     >
                         INNOVATORS & VISIONARIES CLUB
                     </motion.h2>
@@ -81,7 +81,7 @@ const Home = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="text-xl font-extrabold tracking-tight text-ivc-text dark:text-ivc-dark-text sm:text-3xl whitespace-nowrap"
+                        className="text-xl font-bold tracking-widest text-ivc-text dark:text-gray-300 sm:text-3xl whitespace-nowrap text-glow"
                     >
                         IDEATE - VISUALIZE - CREATE
                     </motion.h1>

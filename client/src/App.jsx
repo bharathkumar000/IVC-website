@@ -28,7 +28,7 @@ function App() {
           <section id="join" className="scroll-mt-20"><Join /></section>
         </main>
 
-        <footer className="py-8 text-center text-gray-500 text-sm border-t border-gray-200 bg-gray-50 backdrop-blur-sm dark:bg-ivc-dark-card dark:text-gray-400 dark:border-gray-800">
+        <footer className="py-12 text-center text-gray-600 text-sm border-t border-white/5 bg-black backdrop-blur-xl relative z-20">
           &copy; {new Date().getFullYear()} IVC - Innovation & Value Creation Club. All rights reserved.
         </footer>
       </div>
