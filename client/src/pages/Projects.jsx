@@ -35,7 +35,9 @@ const Projects = () => {
 
     return (
         <div className="pt-20 pb-24 px-4 max-w-7xl mx-auto">
-            <h2 className="text-4xl font-bold mb-12 text-center text-ivc-text underline underline-offset-8 decoration-ivc-primary/30">Our Projects</h2>
+            <h1 className="text-5xl font-display font-bold mb-12 text-center text-glow text-white">
+                Our <span className="text-ivc-primary">Projects</span>
+            </h1>
 
             {loading ? (
                 <div className="flex justify-center items-center h-64">
@@ -52,8 +54,7 @@ const Projects = () => {
                         <motion.div
                             key={project.id}
                             variants={item}
-                            whileHover={{ scale: 1.02 }}
-                            transition={{ type: "spring", stiffness: 300 }}
+                            whileHover={{ scale: 1.02, transition: { duration: 0.1, ease: "easeOut" } }}
                             className="glass-panel glass-panel-hover rounded-2xl overflow-hidden group"
                         >
                             <div className="h-64 overflow-hidden relative">
