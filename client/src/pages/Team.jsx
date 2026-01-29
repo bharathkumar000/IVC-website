@@ -9,16 +9,16 @@ const Team = () => {
 
     // Explicitly defining roles in order
     const teamRoles = [
-        { name: "Hamsaveeni ", role: "Coordinator" },
-        { name: "Praveen", role: "Mentor" },
+        { name: "Prof Hamsaveeni  ", role: "Coordinator" },
+        { name: "Prof Praveen", role: "Mentor" },
         { name: "Jay Ameya Vijay", role: "President" },
         { name: "Riddhi Singh", role: "Vice President" },
         { name: "Yashwanth", role: "Secretary" },
         { name: "Parinitha K", role: "Secretary" },
         { name: "Bharath Kumar A", role: "Operational Lead" },
         { name: "Siddharth", role: "Operational Lead" },
-        { name: "Member Name", role: "Project Lead" },
-        { name: "Member Name", role: "Project Lead" },
+        { name: "Srinivas P", role: "Project Lead" },
+        { name: "Prassidh ", role: "Project Lead" },
         { name: "Deekshith", role: "Treasurer" },
         { name: "Yuktha", role: "Design & Documentation Lead" },
         { name: "Dhanush V Kumar", role: "Design & Documentation Lead" },
@@ -89,17 +89,18 @@ const Team = () => {
                         {row.map((member, index) => {
                             const isBigCard = member.role === "Coordinator" || member.role === "Mentor";
                             // 1.5x size for big cards: w-48 * 1.5 = w-72. Image w-28 * 1.5 ≈ w-40 (10rem)
-                            const cardWidth = isBigCard ? "w-72" : "w-48";
+                            // Increased base width to w-64 to accommodate longer names without wrapping
+                            const cardWidth = isBigCard ? "w-80" : "w-64";
                             const imgSize = isBigCard ? "w-40 h-40" : "w-28 h-28";
 
                             return (
-                                <div key={member.id} className="flex items-center">
+                                <div key={member.id} className="flex">
                                     <motion.div
                                         initial={{ opacity: 0, y: 20 }}
                                         whileInView={{ opacity: 1, y: 0, transition: { delay: index * 0.1 } }}
                                         viewport={{ once: true }}
                                         whileHover={{ scale: 1.05, transition: { duration: 0.1, ease: "easeOut" } }}
-                                        className={`p-4 glass-panel glass-panel-hover rounded-2xl flex flex-col items-center ${cardWidth}`}
+                                        className={`p-4 glass-panel glass-panel-hover rounded-2xl flex flex-col items-center ${cardWidth} h-full`}
                                     >
                                         <div className={`${imgSize} bg-gray-300 rounded-full mb-3 relative overflow-hidden group-hover:scale-105 transition-transform`}>
                                             {member.image ? (
@@ -119,7 +120,7 @@ const Team = () => {
 
                                     {/* Vertical Divider after Vice President (Index 1 in this row of 4) */}
                                     {row.length === 4 && index === 1 && rowIndex === 1 && (
-                                        <div className="h-32 w-px bg-gray-500/20 ml-6 hidden md:block"></div>
+                                        <div className="h-32 w-px bg-gray-500/20 ml-6 hidden md:block self-center"></div>
                                     )}
                                 </div>
                             );
