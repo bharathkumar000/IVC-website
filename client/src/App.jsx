@@ -14,7 +14,7 @@ import InteractiveBackground from './components/InteractiveBackground';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-ivc-bg dark:bg-transparent text-ivc-text font-sans selection:bg-ivc-primary selection:text-white flex flex-col relative">
+      <div className="min-h-screen bg-transparent dark:bg-transparent text-ivc-text font-sans selection:bg-ivc-primary selection:text-white flex flex-col relative">
         <InteractiveBackground />
         <Navbar />
         <main className="flex-grow relative z-10">

@@ -10,12 +10,20 @@
   body {
     @apply bg-ivc-bg text-ivc-text overflow-x-hidden antialiased transition-colors duration-300;
     font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    background-image:
+      radial-gradient(at 0% 0%, rgba(167, 139, 250, 0.5) 0%, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(103, 232, 249, 0.5) 0%, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(167, 139, 250, 0.3) 0%, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(103, 232, 249, 0.3) 0%, transparent 50%);
+    background-attachment: fixed;
   }
 
   .dark body,
   body.dark,
   html.dark body {
     background-color: transparent;
+    background-image: none;
     @apply text-ivc-dark-text;
   }
 }
