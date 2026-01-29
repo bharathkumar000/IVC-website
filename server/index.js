@@ -18,7 +18,8 @@ const events = [
     { id: 2, title: 'AI Workshop', date: '2025-04-10', description: 'Intro to GenAI', image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=600&auto=format&fit=crop' },
     { id: 3, title: 'Tech Talk: Future', date: '2025-05-20', description: 'Expert insights on future tech', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop' },
     { id: 4, title: 'Coding Bootcamp', date: '2025-06-01', description: 'Intensive python course', image: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=600&auto=format&fit=crop' },
-    { id: 5, title: 'Robotics Expo', date: '2025-07-15', description: 'Showcase of student robots', image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop' }
+    { id: 5, title: 'Robotics Expo', date: '2025-07-15', description: 'Showcase of student robots', image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop' },
+    { id: 6, title: 'GitHub Workshop', date: '2025-08-10', description: 'Master Version Control with Git & GitHub.', image: '/images/github_logo.png' }
 ];
 
 const projects = [
