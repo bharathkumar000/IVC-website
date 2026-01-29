@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import logo from '../assets/logo.png';
+import vvceLogo from '../assets/vvce_logo.png';
 
 import { useState, useEffect } from 'react';
 
@@ -61,10 +62,23 @@ const Home = () => {
                     <div className="absolute -top-24 -left-24 w-64 h-64 bg-ivc-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
                     <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-ivc-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
 
+                    {/* College Header */}
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8 sm:mb-12"
+                    >
+                        <img src={vvceLogo} alt="VVCE Logo" className="w-16 h-16 md:w-20 md:h-20" />
+                        <h3 className="text-xl md:text-3xl font-bold text-white uppercase tracking-wider text-center md:text-left drop-shadow-lg font-display">
+                            Vidyavardhaka College of Engineering
+                        </h3>
+                    </motion.div>
+
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
                         className="flex justify-center mb-8"
                     >
                         <img src={logo} alt="IVC Logo" className="w-32 h-32 md:w-48 md:h-48 drop-shadow-2xl" />
@@ -96,14 +110,7 @@ const Home = () => {
                         </span>
                         <span className="animate-pulse text-ivc-primary">|</span>
                     </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="mt-6 text-lg leading-8 text-gray-300 max-w-2xl mx-auto"
-                    >
-                        IVC is the ultimate hub for student innovation, uniting tech enthusiasts, designers, and dreamers. We empower creative minds to collaborate, experiment, and build future-ready solutions together.
-                    </motion.p>
+
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}

@@ -55,9 +55,9 @@ const Join = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
             >
-                <h2 className="text-3xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-ivc-secondary to-ivc-accent underline underline-offset-8 decoration-ivc-primary/30">
-                    Join the Innovation Club
-                </h2>
+                <h1 className="text-4xl md:text-5xl font-display font-bold mb-12 text-center text-glow text-white leading-tight">
+                    Ready to <span className="text-ivc-primary">Innovate?</span>
+                </h1>
                 <form onSubmit={handleSubmit} className="space-y-6 glass-panel glass-panel-hover p-8 rounded-xl transition-all duration-300">
                     {['Name', 'Email', 'Department', 'Year'].map((field) => (
                         <div key={field}>
@@ -107,28 +107,28 @@ const Join = () => {
                             {
                                 Icon: Instagram,
                                 href: "#",
-                                colorClass: "hover:border-[#E1306C] hover:bg-[#E1306C]/10 hover:text-[#E1306C]" // Instagram Brand Color
+                                colorClass: "hover:border-[#E1306C] hover:bg-black hover:text-[#E1306C]" // Instagram Brand Color
                             },
                             {
                                 Icon: Linkedin,
                                 href: "#",
-                                colorClass: "hover:border-[#0077b5] hover:bg-[#0077b5]/10 hover:text-[#0077b5]" // LinkedIn Brand Color
+                                colorClass: "hover:border-[#0077b5] hover:bg-black hover:text-[#0077b5]" // LinkedIn Brand Color
                             },
                             {
                                 Icon: Github,
                                 href: "#",
-                                colorClass: "hover:border-white hover:bg-white/10 hover:text-white" // GitHub (White for dark mode)
+                                colorClass: "hover:border-white hover:bg-black hover:text-white" // GitHub
                             },
                             {
                                 Icon: MessageCircle,
                                 href: "#",
-                                colorClass: "hover:border-green-500 hover:bg-green-500/10 hover:text-green-500" // Chat (Green)
+                                colorClass: "hover:border-[#25D366] hover:bg-black hover:text-[#25D366]" // WhatsApp Green
                             }
                         ].map(({ Icon, href, colorClass }, index) => (
                             <a
                                 key={index}
                                 href={href}
-                                className={`p-3 rounded-full glass-panel hover:bg-white/20 transition-all duration-300 group hover:scale-125 hover:-translate-y-1 ${colorClass}`}
+                                className={`p-3 rounded-full glass-panel transition-all duration-300 group hover:scale-125 hover:-translate-y-1 ${colorClass}`}
                             >
                                 <Icon className="w-6 h-6 text-gray-400 transition-colors group-hover:text-current" />
                             </a>
