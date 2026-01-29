@@ -53,7 +53,7 @@ const Navbar = () => {
             <motion.div
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                className="flex items-center gap-2 p-3 bg-white/10 dark:bg-black/20 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-full shadow-2xl pointer-events-auto"
+                className="flex items-center gap-2 p-1.5 bg-white/10 dark:bg-black/20 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-full shadow-2xl pointer-events-auto"
             >
                 {/* Logo - Click to go top */}
                 <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="mr-2 pl-2">
@@ -63,7 +63,7 @@ const Navbar = () => {
                 <div className="h-8 w-px bg-white/20 dark:bg-white/10 mx-1"></div>
 
                 {/* Navigation Icons */}
-                <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar max-w-[85vw] sm:max-w-none px-4 py-4">
+                <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto sm:overflow-visible no-scrollbar max-w-[85vw] sm:max-w-none px-4 py-1">
                     {links.map((link) => {
                         const Icon = link.icon;
                         const isActive = activeSection === link.id;
@@ -71,7 +71,7 @@ const Navbar = () => {
                         return (
                             <div
                                 key={link.id}
-                                className="relative group perspective-1000 z-10"
+                                className="relative group perspective-1000 z-10 w-10 h-10 flex items-center justify-center"
                                 onMouseEnter={() => setHoveredTab(link.id)}
                                 onMouseLeave={() => setHoveredTab(null)}
                             >
@@ -79,21 +79,23 @@ const Navbar = () => {
                                 {isActive && (
                                     <motion.div
                                         layoutId="active-pill"
-                                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-7 h-7 bg-ivc-primary rounded-full shadow-[0_0_15px_rgba(20,184,166,0.5)] z-0"
-                                        initial={false}
+                                        className="absolute inset-0 bg-ivc-primary/60 rounded-full shadow-[0_0_20px_rgba(20,184,166,0.6)] z-0 blur-md"
+                                        initial={{ scale: 0.8, opacity: 0 }}
+                                        animate={{ scale: 1.5, opacity: 1 }}
+                                        exit={{ scale: 0.8, opacity: 0 }}
                                         transition={{
                                             type: "spring",
-                                            stiffness: 400,
-                                            damping: 30
+                                            bounce: 0.2,
+                                            duration: 0.6
                                         }}
                                     />
                                 )}
 
                                 <button
                                     onClick={() => scrollToSection(link.id)}
-                                    className={`w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 relative z-10 bg-transparent ${isActive
-                                        ? 'text-white scale-125 -translate-y-2'
-                                        : 'text-gray-400 hover:text-white hover:bg-transparent hover:scale-150 hover:-translate-y-4 hover:z-50'
+                                    className={`w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 ease-out relative z-10 bg-transparent ${isActive
+                                        ? 'text-white scale-150 drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] z-50'
+                                        : 'text-gray-400 hover:text-white hover:!bg-transparent hover:scale-150 hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.5)] hover:z-50'
                                         }`}
                                     aria-label={link.name}
                                 >
@@ -123,7 +125,7 @@ const Navbar = () => {
                 {/* Theme Toggle */}
                 <button
                     onClick={toggleTheme}
-                    className="w-10 h-10 flex items-center justify-center rounded-full hover:text-white hover:bg-transparent transition-all duration-300 group relative text-gray-400"
+                    className="w-10 h-10 flex items-center justify-center rounded-full hover:text-white hover:!bg-transparent transition-all duration-300 group relative text-gray-400"
                     aria-label="Toggle Theme"
                 >
                     {isDark ? <Sun size={20} /> : <Moon size={20} />}

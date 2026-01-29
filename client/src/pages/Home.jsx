@@ -56,8 +56,8 @@ const Home = () => {
         <div className="relative isolate pt-24 pb-20 lg:pt-32 min-h-screen flex items-start">
 
             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 relative z-10 w-full">
-                <div className="max-w-5xl mx-auto text-center glass-panel p-10 md:p-16 rounded-[2.5rem] relative overflow-hidden">
-                    {/* Decorative glow background for the hero box */}
+                <div className="max-w-5xl mx-auto text-center relative">
+                    {/* Decorative glow background for the hero content */}
                     <div className="absolute -top-24 -left-24 w-64 h-64 bg-ivc-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
                     <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-ivc-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
 

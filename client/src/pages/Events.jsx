@@ -35,8 +35,8 @@ const Events = () => {
                             transition={{ delay: index * 0.1 }}
                             className="glass-panel glass-panel-hover rounded-2xl overflow-hidden group flex flex-col"
                         >
-                            <div className="h-56 bg-gray-900 relative overflow-hidden">
-                                <div className="absolute top-3 right-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded-md text-xs font-mono border border-gray-700 text-gray-300 z-10">
+                            <div className="h-56 relative overflow-hidden">
+                                <div className="absolute top-3 right-3 glass-panel px-3 py-1 rounded-md text-xs font-mono text-gray-200 z-10">
                                     {event.date}
                                 </div>
                                 <img src={event.image} alt={event.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500" />
