@@ -9,7 +9,7 @@ const Team = () => {
 
     // Explicitly defining roles in order
     const teamRoles = [
-        { name: "Prof Hamsaveeni  ", role: "Coordinator" },
+        { name: "Prof Hamsaveeni", role: "Coordinator" },
         { name: "Prof Praveen", role: "Mentor" },
         { name: "Jay Ameya Vijay", role: "President" },
         { name: "Riddhi Singh", role: "Vice President" },
@@ -18,12 +18,12 @@ const Team = () => {
         { name: "Bharath Kumar A", role: "Operational Lead" },
         { name: "Siddharth", role: "Operational Lead" },
         { name: "Srinivas P", role: "Project Lead" },
-        { name: "Prassidh ", role: "Project Lead" },
+        { name: "Prassidh", role: "Project Lead" },
         { name: "Deekshith", role: "Treasurer" },
         { name: "Yuktha", role: "Design & Documentation Lead" },
         { name: "Dhanush V Kumar", role: "Design & Documentation Lead" },
         { name: "Prasad", role: "Design & Documentation Lead" },
-        { name: "Monish ", role: "Communication & Outreach Lead" },
+        { name: "Monish", role: "Communication & Outreach Lead" },
         { name: "Jeevan", role: "Communication & Outreach Lead" },
         { name: "Afia", role: "Communication & Outreach Lead" },
         { name: "Anthra", role: "Communication & Outreach Lead" },
@@ -35,28 +35,43 @@ const Team = () => {
     const teamMembers = teamRoles.map((member, i) => {
         let image = null;
 
-        // Specific Image Assignments by Index
-        if (member.role === "Coordinator") {
-            image = "/images/team/coordinator.jpg";
-        } else if (member.role === "Mentor") {
-            image = "/images/team/mentor.jpg";
-        } else if (member.role === "Secretary") {
-            if (i === 4) image = "/images/team/secretary_1.jpg";
-        } else if (member.role === "Operational Lead") {
-            if (i === 6) image = "/images/team/operational_lead.jpg";
-            if (i === 7) image = "/images/team/operational_lead_2.jpg";
-        } else if (member.role === "Project Lead") {
-            if (i === 8) image = "/images/team/project_lead_1.jpg";
-            if (i === 9) image = "/images/team/project_lead_2.jpg";
-        } else if (member.role === "Communication & Outreach Lead") {
-            // Assign specific images to the first two Communication leads based on their global index
-            // Communication leads are at indices 14, 15, 16, 17
-            if (i === 14) image = "/images/team/comm_outreach_1.jpg";
-            if (i === 15) image = "/images/team/comm_outreach_2.jpg";
-            if (i === 16) image = "/images/team/comm_outreach_3.png";
-        } else if (member.role === "Social Media & Marketing Lead") {
-            if (i === 18) image = "/images/team/mahesh_prasad.png";
-            if (i === 19) image = "/images/team/social_media_2.jpg";
+        // Specific Image Assignments by Name (more robust than index)
+        const nameKey = member.name.toLowerCase();
+
+        if (nameKey.includes("hamsaveeni")) image = "/images/team/hamsaveeni.jpg";
+        else if (nameKey.includes("praveen")) image = "/images/team/praveen.jpg";
+        else if (nameKey.includes("yashwanth")) image = "/images/team/yashwanth.jpg";
+        else if (nameKey.includes("bharath")) image = "/images/team/bharath.png";
+        else if (nameKey.includes("siddharth")) image = "/images/team/siddharth.jpg";
+        else if (nameKey.includes("prassidh")) image = "/images/team/prassidh.jpg";
+        else if (nameKey.includes("monish")) image = "/images/team/monish.jpg";
+        else if (nameKey.includes("jeevan")) image = "/images/team/jeevan.jpg";
+        else if (nameKey.includes("afia")) image = "/images/team/afia.png";
+        else if (nameKey.includes("mahesh")) image = "/images/team/mahesh_prasad.png"; // Keeping .png as it was specific
+        else if (nameKey.includes("dhanush m c")) image = "/images/team/dhanush_mc.jpg";
+
+        // Fallbacks for roles if no specific name match
+        if (!image) {
+            if (member.role === "Coordinator") image = "/images/team/coordinator.jpg";
+            else if (member.role === "Mentor") image = "/images/team/mentor.jpg";
+            // Keep existing index-based logic as secondary fallback or override if needed
+            else if (member.role === "Secretary" && i === 4) image = "/images/team/secretary_1.jpg";
+            else if (member.role === "Operational Lead") {
+                if (i === 6) image = "/images/team/operational_lead.jpg";
+                if (i === 7) image = "/images/team/operational_lead_2.jpg";
+            }
+            else if (member.role === "Project Lead") {
+                if (i === 8) image = "/images/team/project_lead_1.jpg";
+                if (i === 9) image = "/images/team/project_lead_2.jpg";
+            }
+            else if (member.role === "Communication & Outreach Lead") {
+                if (i === 14) image = "/images/team/comm_outreach_1.jpg";
+                if (i === 15) image = "/images/team/comm_outreach_2.jpg";
+                if (i === 16) image = "/images/team/comm_outreach_3.png";
+            }
+            else if (member.role === "Social Media & Marketing Lead") {
+                if (i === 19) image = "/images/team/social_media_2.jpg";
+            }
         }
 
         return {
@@ -76,7 +91,7 @@ const Team = () => {
 
     return (
         <div className="pt-24 pb-24 px-4 max-w-7xl mx-auto text-center text-ivc-text">
-            <h1 className="text-5xl font-display font-bold mb-12 text-glow text-white">
+            <h1 className="text-5xl font-display font-bold mb-12 text-glow text-black dark:text-white">
                 Meet the <span className="text-ivc-primary">Team</span>
             </h1>
 
@@ -114,7 +129,7 @@ const Team = () => {
                                                 <div className="absolute inset-0 bg-gradient-to-tr from-gray-200 to-gray-400 group-hover:from-gray-300 group-hover:to-gray-500"></div>
                                             )}
                                         </div>
-                                        <h3 className={`font-bold mb-1 text-ivc-dark-text ${isBigCard ? 'text-2xl' : 'text-lg'}`}>{member.name}</h3>
+                                        <h3 className={`font-bold mb-1 text-black dark:text-ivc-dark-text ${isBigCard ? 'text-2xl' : 'text-lg'}`}>{member.name}</h3>
                                         <p className={`text-ivc-primary font-medium tracking-wide ${isBigCard ? 'text-base' : 'text-xs'}`}>{member.role}</p>
                                     </motion.div>
 

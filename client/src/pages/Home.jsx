@@ -70,7 +70,7 @@ const Home = () => {
                         className="flex flex-col md:flex-row items-center justify-center gap-4 mb-2 sm:mb-3"
                     >
                         <img src={vvceLogo} alt="VVCE Logo" className="w-16 h-16 md:w-20 md:h-20" />
-                        <h3 className="text-xl md:text-3xl font-bold text-white uppercase tracking-wider text-center md:text-left drop-shadow-lg font-display">
+                        <h3 className="text-xl md:text-3xl font-bold text-black dark:text-white uppercase tracking-wider text-center md:text-left drop-shadow-lg font-display">
                             Vidyavardhaka College of Engineering
                         </h3>
                     </motion.div>
@@ -125,7 +125,7 @@ const Home = () => {
                         </button>
                         <button
                             onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                            className="text-sm font-semibold leading-6 text-ivc-dark-text flex items-center gap-1 hover:gap-2 transition-all hover:text-ivc-primary"
+                            className="text-sm font-semibold leading-6 text-black dark:text-white flex items-center gap-1 hover:gap-2 transition-all hover:text-ivc-primary"
                         >
                             View Projects <ArrowRight size={16} />
                         </button>
