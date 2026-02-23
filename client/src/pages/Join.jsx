@@ -17,9 +17,10 @@ const WhatsAppIcon = ({ className }) => (
 const Join = () => {
     const [formData, setFormData] = useState({
         name: '',
+        branch: '',
+        semester: '',
+        mobile: '',
         email: '',
-        department: '',
-        year: '',
     });
     const [status, setStatus] = useState('');
 
@@ -38,7 +39,7 @@ const Join = () => {
             });
             if (response.ok) {
                 setStatus('success');
-                setFormData({ name: '', email: '', department: '', year: '' });
+                setFormData({ name: '', branch: '', semester: '', mobile: '', email: '' });
             } else {
                 setStatus('error');
             }
@@ -47,6 +48,14 @@ const Join = () => {
             setStatus('error');
         }
     };
+
+    const formFields = [
+        { label: 'Name', name: 'name', type: 'text', placeholder: 'Your full name' },
+        { label: 'Branch', name: 'branch', type: 'text', placeholder: 'e.g. CSE, ISE, ECE' },
+        { label: 'Semester', name: 'semester', type: 'text', placeholder: 'e.g. 3rd, 5th' },
+        { label: 'Mobile Number', name: 'mobile', type: 'tel', placeholder: 'Your 10-digit mobile number' },
+        { label: 'Email', name: 'email', type: 'email', placeholder: 'Your email address' },
+    ];
 
     return (
         <div className="pt-20 pb-24 px-4 max-w-xl mx-auto flex flex-col justify-center">
@@ -59,15 +68,16 @@ const Join = () => {
                     Ready to <span className="text-ivc-primary">Innovate?</span>
                 </h1>
                 <form onSubmit={handleSubmit} className="space-y-6 glass-panel glass-panel-hover p-8 rounded-xl transition-all duration-300">
-                    {['Name', 'Email', 'Department', 'Year'].map((field) => (
-                        <div key={field}>
-                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">{field}</label>
+                    {formFields.map(({ label, name, type, placeholder }) => (
+                        <div key={name}>
+                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">{label}</label>
                             <input
-                                type={field === 'Email' ? 'email' : 'text'}
-                                name={field.toLowerCase()}
-                                value={formData[field.toLowerCase()]}
+                                type={type}
+                                name={name}
+                                value={formData[name]}
                                 onChange={handleChange}
                                 required
+                                placeholder={placeholder}
                                 className="mt-1 block w-full rounded-md border border-gray-300 dark:border-white/10 bg-white dark:bg-white/5 py-2 text-black dark:text-ivc-dark-text shadow-sm backdrop-blur-md focus:ring-2 focus:ring-inset focus:ring-ivc-primary sm:text-sm sm:leading-6 px-3 transition-all placeholder:text-gray-500"
                             />
                         </div>

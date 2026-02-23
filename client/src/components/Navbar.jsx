@@ -5,7 +5,7 @@ import { useTheme } from '../context/ThemeContext';
 
 import logo from '../assets/logo.png';
 
-const Navbar = () => {
+const Navbar = ({ showSplash }) => {
     const [activeSection, setActiveSection] = useState('home');
     const [hoveredTab, setHoveredTab] = useState(null);
     const { isDark, toggleTheme } = useTheme();
@@ -52,7 +52,8 @@ const Navbar = () => {
         <nav className="fixed w-full z-50 top-6 flex justify-center pointer-events-none px-4">
             <motion.div
                 initial={{ y: -100, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
+                animate={!showSplash ? { y: 0, opacity: 1 } : { y: -100, opacity: 0 }}
+                transition={{ duration: 0.6, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
                 className="flex items-center gap-2 p-1.5 bg-white/10 dark:bg-black/20 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-full shadow-2xl pointer-events-auto"
             >
                 {/* Logo - Click to go top */}

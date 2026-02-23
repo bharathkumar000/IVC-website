@@ -34,7 +34,7 @@ const InteractiveBackground = () => {
                     y: y,
                     originX: x, // Remember original position to return to
                     originY: y,
-                    size: Math.random() < 0.6 ? 1 : (Math.random() < 0.85 ? 1.5 : 2), // Random sizes: 1px, 1.5px, 2px
+                    size: Math.random() < 0.6 ? 1.5 : (Math.random() < 0.85 ? 2.25 : 3), // Scaled 1.5x: 1.5px, 2.25px, 3px
                     color: colors[Math.floor(Math.random() * colors.length)],
                     vx: 0,
                     vy: 0,
