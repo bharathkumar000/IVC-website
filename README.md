@@ -1,62 +1,81 @@
-# IVC Club Website 
+# 🚀 IVC — INNOVATORS & VISIONARIES CLUB
 
-A modern full-stack website built for the **Innovators and Visionaries Club (IVC) ** to showcase projects, events, and encourage students to join and collaborate.
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-ff0055?logo=framer&logoColor=white)](https://www.framer.com/motion/)
+[![Vite](https://img.shields.io/badge/Vite-5.0-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Node.js](https://img.shields.io/badge/Node.js-20-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+
+A premium, modern web presence for the **Innovators and Visionaries Club (IVC)** at **Vidyavardhaka College of Engineering**. This platform serves as a digital hub for student innovators to showcase their projects, discover upcoming events, and join a community of technical excellence.
 
 ---
 
-## Tech Stack
+## ✨ Key Features
+
+- **🛡️ Immersive Experience**: Smooth splash screen transitions and a dynamic particle-based interactive background.
+- **📱 Fluid UI/UX**: Fully responsive, dark-themed design built with glassmorphism principles.
+- **🎭 Scroll Animations**: High-performance entrance animations powered by Framer Motion.
+- **🛠️ Domain Showcases**: Detailed sections for Web Dev, AI/ML, IoT, Robotics, and more.
+- **📅 Event & Project Tracks**: Real-time ready sections for club activities and achievements.
+- **🔗 Seamless Navigation**: Single-page application (SPA) feel with smooth scroll-into-view navigation.
+
+---
+
+## 🛠️ Tech Stack
 
 ### Frontend
-- React.js
-- Tailwind CSS
-- Framer Motion
-- Vite
+- **React 19**: Modern component architecture.
+- **Tailwind CSS**: Utility-first styling for high-performance UI.
+- **Framer Motion**: Advanced physics-based animations.
+- **Lucide React**: Clean and consistent iconography.
+- **Vite**: Ultra-fast build tool and dev server.
 
 ### Backend
-- Node.js
+- **Node.js**: Asynchronous event-driven JavaScript runtime.
+- **Express**: Fast, unopinionated, minimalist web framework.
 
 ---
 
-## Project Structure
-Modern website for Innovation & Value Creation Club.
+## 📂 Project Anatomy
 
-## Project Structure
-- `/client`: React Frontend
-- `/server`: Node.js Backend 
-
-## Getting Started
-
-### 1. Install Dependencies
 ```bash
-# Frontend
-cd client
+├── client/          # Vite + React Frontend
+│   ├── src/
+│   │   ├── components/  # Reusable UI Atoms (Navbar, Splash, etc.)
+│   │   ├── pages/       # Section Components (Home, Projects, Team)
+│   │   ├── assets/      # Media & Logos
+│   │   └── index.css    # Global Tailwind Config
+├── server/          # Node.js + Express Backend
+└── package.json     # Root management (Concurrently scripts)
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone & Install
+```bash
+git clone https://github.com/bharathkumar000/IVC-website.git
+cd IVC-website
 npm install
-
-# Backend
-cd ../server
-npm install
+cd client && npm install
+cd ../server && npm install
 ```
 
-### 2. Run Locally
-**Terminal 1 (Backend):**
+### 2. Launch Development Environment
+From the root directory, run both frontend and backend simultaneously:
 ```bash
-cd server
 npm run dev
-# runs on http://localhost:3030
 ```
 
-**Terminal 2 (Frontend):**
-```bash
-cd client
-npm run dev
-# runs on http://localhost:5173
-```
+- **Frontend**: [http://localhost:9090](http://localhost:9090)
+- **Backend**: [http://localhost:3001](http://localhost:3001)
 
-## Features implemented
-- Modern Dark UI with Tailwind CSS & Framer Motion
-- Responsive Navigation
-- Hero Section with Animations
-- Projects, Events, Join Pages
-- Backend API for `/join`, `/projects`, `/events`
+---
+
+## 👨‍💻 Contribution
+Join the vision. If you're a member of IVC, feel free to fork this repo and submit a PR for new features or bug fixes.
+
+**IDEATE • VISUALIZE • CREATE**
 
 
