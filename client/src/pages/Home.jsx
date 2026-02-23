@@ -7,7 +7,7 @@ import vvceLogo from '../assets/vvce_logo.png';
 
 import { useState, useEffect } from 'react';
 
-const Home = () => {
+const Home = ({ showSplash }) => {
     const [currentText, setCurrentText] = useState('');
     const [isDeleting, setIsDeleting] = useState(false);
     const [loopNum, setLoopNum] = useState(0);
@@ -35,11 +35,9 @@ const Home = () => {
             let typeSpeed = isDeleting ? 50 : 100;
 
             if (!isDeleting && currentText === fullText) {
-                // Done typing, wait 3 seconds
                 typeSpeed = 1000;
                 setIsDeleting(true);
             } else if (isDeleting && currentText === '') {
-                // Done deleting, move to next
                 setIsDeleting(false);
                 setLoopNum(loopNum + 1);
                 typeSpeed = 500;
@@ -49,24 +47,27 @@ const Home = () => {
         };
 
         const timer = setTimeout(handleTyping, typingSpeed);
-
         return () => clearTimeout(timer);
     }, [currentText, isDeleting, loopNum, phrases, typingSpeed]);
+
+    // Stagger delay base — elements only animate in after splash is done
+    const baseDelay = showSplash ? 999 : 0; // huge delay if splash is still showing
+    const ready = !showSplash;
 
     return (
         <div className="relative isolate pt-24 pb-20 lg:pt-32 min-h-screen flex items-start">
 
             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 relative z-10 w-full">
                 <div className="max-w-5xl mx-auto text-center relative">
-                    {/* Decorative glow background for the hero content */}
+                    {/* Decorative glow background */}
                     <div className="absolute -top-24 -left-24 w-64 h-64 bg-ivc-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
                     <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-ivc-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
 
-                    {/* College Header */}
+                    {/* College Header - slides down from top */}
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
+                        initial={{ opacity: 0, y: -30 }}
+                        animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
+                        transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
                         className="flex flex-col md:flex-row items-center justify-center gap-4 mb-2 sm:mb-3"
                     >
                         <img src={vvceLogo} alt="VVCE Logo" className="w-16 h-16 md:w-20 md:h-20" />
@@ -75,35 +76,42 @@ const Home = () => {
                         </h3>
                     </motion.div>
 
+                    {/* IVC Logo - scales in */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
+                        initial={{ opacity: 0, scale: 0.6 }}
+                        animate={ready ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.6 }}
+                        transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
                         className="flex justify-center mb-8"
                     >
                         <img src={logo} alt="IVC Logo" className="w-32 h-32 md:w-48 md:h-48 drop-shadow-2xl" />
                     </motion.div>
+
+                    {/* Club Name - slides up */}
                     <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                        transition={{ duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
                         className="text-[4vw] md:text-5xl font-display font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-ivc-primary to-ivc-accent mb-2 whitespace-nowrap drop-shadow-lg"
                     >
                         INNOVATORS & VISIONARIES CLUB
                     </motion.h2>
+
+                    {/* Tagline - slides up */}
                     <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                        transition={{ duration: 0.7, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
                         className="text-xl font-bold tracking-widest text-ivc-text dark:text-gray-300 sm:text-3xl whitespace-nowrap text-glow"
                     >
                         IDEATE - VISUALIZE - CREATE
                     </motion.h1>
+
+                    {/* Typing text - fades in */}
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.1 }}
-                        className="text-xl sm:text-3xl font-bold mt-8 h-12" // Added height to prevent layout shift
+                        animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                        transition={{ duration: 0.7, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                        className="text-xl sm:text-3xl font-bold mt-8 h-12"
                     >
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-ivc-primary to-ivc-accent">
                             {currentText}
@@ -111,10 +119,11 @@ const Home = () => {
                         <span className="animate-pulse text-ivc-primary">|</span>
                     </motion.h2>
 
+                    {/* Buttons - slide up last */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                        transition={{ duration: 0.7, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
                         className="mt-10 flex items-center justify-center gap-x-6"
                     >
                         <button
