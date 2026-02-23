@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -10,15 +11,19 @@ import Join from './pages/Join';
 import Achievements from './pages/Achievements';
 
 import InteractiveBackground from './components/InteractiveBackground';
+import SplashScreen from './components/SplashScreen';
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
+
   return (
     <Router>
+      {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
       <div className="min-h-screen bg-transparent dark:bg-transparent text-ivc-text font-sans selection:bg-ivc-primary selection:text-white flex flex-col relative">
         <InteractiveBackground />
-        <Navbar />
+        <Navbar showSplash={showSplash} />
         <main className="flex-grow relative z-10">
-          <section id="home" className="scroll-mt-20"><Home /></section>
+          <section id="home" className="scroll-mt-20"><Home showSplash={showSplash} /></section>
           <section id="about" className="scroll-mt-20"><About /></section>
           <section id="domains" className="scroll-mt-20"><Domains /></section>
           <section id="projects" className="scroll-mt-20"><Projects /></section>
